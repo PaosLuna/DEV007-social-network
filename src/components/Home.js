@@ -1,4 +1,4 @@
-export const Home = () => {
+export const Home = (onNavigate) => {
   const HomeDiv = document.createElement('div');
  
 

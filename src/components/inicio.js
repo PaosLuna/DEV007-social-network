@@ -1,9 +1,8 @@
-import { onNavigate } from '../main.js';
 import {registroGoogle} from './registroGoogle.js'
 import { registroCorreo } from './registroCorreo.js';
 
 
-export const inicio = () => {
+export const inicio = (onNavigate) => {
 
     const inicioDiv = document.createElement('div');
     const botonInicio = document.createElement('button');
@@ -16,12 +15,12 @@ export const inicio = () => {
     botonGoogle.classList.add("botonGoogle")
 
     botonInicio.textContent = 'Inicia Sesion';
-    botonRegistro.textContent = 'Registrate';
+    botonRegistro.textContent = 'Registrateeeeeeeeee';
     botonGoogle.textContent = 'Ingresa con Google';
     
     botonInicio.addEventListener('click', () => onNavigate('/Inicio'));
     botonRegistro.addEventListener('click', () => onNavigate('/Registro'));
-    botonGoogle.addEventListener('click', () => registroGoogle());
+    botonGoogle.addEventListener('click', () => registroGoogle(onNavigate));
 
     inicioDiv.appendChild(botonInicio);
     inicioDiv.appendChild(botonRegistro);

@@ -1,6 +1,4 @@
-import { onNavigate } from '../main.js';
-
-export const registroCorreo = () => {
+export const registroCorreo = (onNavigate) => {
     const registroCorreoDiv = document.createElement('div');
     const botonRegistrate = document.createElement('button');
     const formularioRegistro = document.createElement('form');
