@@ -15,7 +15,7 @@ export const inicio = (onNavigate) => {
     botonGoogle.classList.add("botonGoogle")
 
     botonInicio.textContent = 'Inicia Sesion';
-    botonRegistro.textContent = 'Registrateeeeeeeeee';
+    botonRegistro.textContent = 'Registrate';
     botonGoogle.textContent = 'Ingresa con Google';
     
     botonInicio.addEventListener('click', () => onNavigate('/Inicio'));
