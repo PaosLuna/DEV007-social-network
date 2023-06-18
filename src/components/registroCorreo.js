@@ -78,12 +78,12 @@ export const registroCorreo = (onNavigate) => {
   botonRegistrate.addEventListener("click", () => {
     validarCorreo();
     registro(onNavigate);
-    /*if (validarCorreo() == true){
+    if (validarCorreo() == true){
         registro(onNavigate);
 
       } else {
         return console.log("Correo no valido")
-      }*/
+      }
 
       
       

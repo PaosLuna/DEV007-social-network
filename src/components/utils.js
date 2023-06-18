@@ -1,6 +1,6 @@
 /*------------------------------------FUNCIONES INICIO SESIÓN -------------------------------------------*/
 
-import { getAuth, signInWithEmailAndPassword, signOut } from "firebase/auth";
+import { getAuth, signInWithEmailAndPassword, signOut, sendEmailVerification  } from "firebase/auth";
 import {
   collection,
   addDoc,
@@ -33,10 +33,18 @@ export function loginEmail(email, password, onNavigate) {
   signInWithEmailAndPassword(auth, email, password)
     .then((result) => {
       // Signed in
+
+      //valida que el correo esta verificado
+     if(auth.currentUser.emailVerified){
       onNavigate("/Home");
+     }else{
+      alert("verifica tu correo")
+     }
+      
     })
     .catch((error) => {
       alert(error.message);
+      
     });
 }
 
@@ -90,16 +98,29 @@ const registroMail = (email, password, onNavigate, nameNewUser) => {
       });
       //console.log(result) adddoc aqui va la logica para traer datos
       // Signed in
-      onNavigate("/FotoPerfil");
+      auth.signOut();
+      sendEmailVerification(auth.currentUser).then(() => {
+        alert("se ha enviado correo de verificacion")
+      })
+      onNavigate("/");
     })
     .catch((error) => {
       console.log(error);
+      const errorCode = error.code;
+      
+      if(errorCode == 'auth/email-already-in-use'){
+        alert("el correo ya esta en uso")
+      }else if(errorCode == 'auth/invalid-email'){
+        SubtleCrypto("el correo no es valido")
+      }
     });
 };
 
 export function logout() {
   signOut(auth);
 }
+
+
 
 /*------------------------------------FUNCIONES CREAR POSTS -------------------------------------------*/
 import { usuarioActual } from "./registroGoogle";
@@ -179,12 +200,16 @@ export const eliminarPost = id => deleteDoc(doc(db, 'posts', id));
 
 /*------------------------------------------------ FUNCION ME GUSTA       -------------------------------------------*/
 
-export const updateLike = (idPost, idUsuario) => {
-  updateDoc(doc(db, "posts", idPost), { likes: arrayUnion(idUsuario) });
+export const updateLike = async (idPost, idUsuario) => {
+  const postsQuerySnapshot = await getDocs(collection(db, 'posts'))
+  const postDoc = postsQuerySnapshot.docs.find(doc => doc.id === idPost);
+  updateDoc(postDoc.ref, { likes: arrayUnion(idUsuario) });
 };
 
-export const disLike = (idPost, idUsuario) => {
-  updateDoc(doc(db, "posts", idPost), { likes: arrayRemove(idUsuario) });
+export const disLike = async (idPost, idUsuario) => {
+  const postsQuerySnapshot = await getDocs(collection(db, 'posts'));
+  const postDoc = postsQuerySnapshot.docs.find(doc => doc.id === idPost);
+  updateDoc(postDoc.ref, { likes: arrayRemove(idUsuario) });
 };
 
 /*------------------------------------------------ VALIDAR CORREO   -------------------------------------------
@@ -198,17 +223,16 @@ export const validarCorreo = (mailNewUser) => {
   }
 }*/
 
-export function validarCorreo(){
+export function validarCorreo(correo){
 
   // Define our regular expression.
-  var validEmail =  /^\w+([.-_+]?\w+)*@\w+([.-]?\w+)*(\.\w{2,10})+$/;
+  let regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-  // Using test we can check if the text match the pattern
-  if( validEmail.test(mailNewUser.value) ){
-      console.log('Email is valid, continue with form submission');
-  }else{
-      alert('Email is invalid, skip form submission');
-      return false;
+  // Validar el formato del correo electrónico
+  if (regex.test(correo)) {
+    return true; // El correo electrónico tiene un formato válido
+  } else {
+    return false; // El correo electrónico tiene un formato inválido
   }
 }
 

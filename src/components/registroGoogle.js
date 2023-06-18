@@ -22,6 +22,7 @@ onAuthStateChanged(auth, (usuario) =>{
     if(usuario){
         usuarioActual = usuario;
         console.log("usuario logueado", usuarioActual.displayName)
+        console.log(usuarioActual)
     }else {
         usuarioActual = null
         console.log("no hay usuario logueado")
