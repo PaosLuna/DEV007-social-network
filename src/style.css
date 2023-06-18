@@ -18,7 +18,7 @@ html {
 body {
   display: flex;
   flex-direction: column;
-  min-height: 100vh;
+  min-height: calc(100% - 2rem);
 }
 
 
@@ -779,13 +779,12 @@ body {
   height: 50px;
 }
 
+.menuGrande {
+  display: none;
+}
 
 /*-------------------------------------------------------------- SECCIÓN HOME  --------------------------------------------------*/
 .homeDiv {
-  background-image: url(Imagenes/Fondo2.jpg);
-  background-repeat: no-repeat;
-  background-size: contain;
-  background-position: bottom center;
   background-color: #7b9c6d7c;
   padding: 20px 30px;
   min-height: calc(100vh - 2rem);
@@ -1008,156 +1007,9 @@ body {
 }
 
 
+
+
 /*-------------------------------------------------------------- POST PUBLICADO---------------------------------------------------*/
-
-
-/*.divPosts {
-  width: 100%;
-}
-
-
-.publicacionPost {
-  background-color: #fefefe;
-  margin: 5% 0;
-  border: 1px solid #888;
-  border-radius: 20px;
-  width: 100%;
-  padding: 10px 0;
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: 30px 30px 30px 30px 300px 30px 50px;
-    grid-template-areas: 
-    "usuario usuario usuario"
-    "ubicacion2 ubicacion2 ubicacion2"
-    "dificultad2 dificultad2 dificultad2"
-    "equipo2 equipo2 equipo2"
-    "imagenPost imagenPost imagenPost"
-    "descripcionPost descripcionPost descripcionPost"
-    "botonEditar botonEliminar botonLike"
-    ;
-}
-
-
-.usuario {
-  grid-area: usuario;
-  width: 90%;
-  height: 30px;
-  margin: 0 auto;
-  padding: 5px;
-}
-
-
-.ubicacion2 {
-  grid-area: ubicacion2;
-  width: 90%;
-  height: 30px;
-  margin: 0 auto;
-  padding: 5px;
-}
-
-
-.dificultad2 {
-  grid-area: dificultad2;
-  width: 90%;
-  height: 30px;
-  margin: 0 auto;
-  padding: 5px;
-}
-
-
-.equipo2 {
-  grid-area: equipo2;
-  width: 90%;
-  height: 30px;
-  margin: 0 auto;
-  padding: 5px;
-}
-
-
-.imagenPost {
-  grid-area: imagenPost;
-  position: relative;
-  width: 88%;
-  height: 100%;
-  margin: 5px 0 5px 6%;
-}
-
-
-.descripcionPost{
-  grid-area: descripcionPost;
-  width: 90%;
-  height: 30px;
-  margin: 0 auto;
-  padding: 15px 5px;
-}
-
-
-.likePublicacion{
-  grid-area: botonLike;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-top: 2px;
-  padding: 30px 0px;
-}
-
-
-.editarPublicacion {
-  grid-area: botonEditar;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-top: 2px;
-  padding: 30px 0px;
-}
-
-
-.eliminarPublicacion {
-  grid-area: botonEliminar;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-top: 2px;
-  padding: 30px 0px;
-}
-
-
-.like {
- background-color: #2f6e05;
- color: white; 
- border: none; 
- padding: 0 0px; 
- cursor: pointer;
- height: 30px;
- width: 70px;
- border-radius: 5px;
-}
-
-
-.editar {
-  background-color: #2f6e05;
- color: white; 
- border: none; 
- padding: 0 0px; 
- cursor: pointer;
- height: 30px;
- width: 70px;
- border-radius: 5px;
-}
-
-
-.eliminar {
-  height: 30px;
-  background-color: #2f6e05;
- color: white; 
- border: none; 
- padding: 0 0px; 
- cursor: pointer;
- height: 30px;
- width: 70px;
- border-radius: 5px;
-}*/
-
 
 .divPosts {
   grid-area: divPost;
@@ -1246,33 +1098,32 @@ body {
 
 
 .like {
-  /*background-color: #2f6e05;*/
-  color: white;
   border: none; 
-  padding: 0 20px;
   cursor: pointer;
   width: 100%;
   height: 100%;
-  border-radius: 5px;
   margin: 5PX;
   background-color: transparent;
  }
 
 
  .montana {
-  height: 20px;
-  width: 20px;
-  right: 10px;
+  position: relative;
+  height: 40px;
+  width: 40px;
+  right: 22px;
 }
 
 
  .contadorLikes {
+  position: relative;
   grid-area: contadorLikes;
   width: 100%;
   height: 30px;
-  margin: 15px 0px;
+  margin: 18px 0px;
   font-family: 'Josefin Sans', sans-serif;
   font-size: 20px;
+  right: 60px;
  }
 
 
@@ -1322,16 +1173,17 @@ body {
 
 footer {
   height: 2rem;
-  background-color: rgba(0, 0, 0, 0.678);
-  color: white;
+  background-color: rgba(0, 0, 0, 0.411);
+  color: rgb(0, 0, 0);
   font-size: 10px;
   text-align: center;
   padding: 10px;
-  position: fixed;
-  left: 0;
-  bottom: 0;
+  position: relative;
+  bottom: 0px;
   width: 100%;
+  z-index: 0;
 }
+
 }
 
 
@@ -1367,9 +1219,9 @@ footer {
   .inicioDiv {
     background-image: url(Imagenes/fondoNuevoGrande.png);
     background-repeat: no-repeat;
-    background-size: 18cm;
+    background-size: 20cm;
     background-position: bottom left;
-    background-color: #6e9978;
+    background-color: #41b1117c;
     position: relative;
     margin: 0 auto;
     width: 100%;
@@ -1398,15 +1250,14 @@ footer {
   
   .inicioDiv .formDiv {
     grid-area: formDiv;
-    background: rgba(255, 255, 255, 0.151);
+    background: rgb(255, 255, 255);
     box-shadow: 0 0 15px 1px rgba(0, 0, 0, 0.4);
-    padding: 20px 30px;
     width: 70%;
-    margin-top: 35px;
+    margin-top: 80px;
     margin-left: 60px;
-    height: 420px;
+    height: 68%;
     display: grid;
-    grid-template-rows: 150px 100px 150px;
+    grid-template-rows: 150px 100px 100px;
     grid-template-areas:
       "botonInicio"
       "botonRegistro"
@@ -1419,16 +1270,11 @@ footer {
     height: 50px;
     width: 300px;
     margin: 0 auto;
-    margin-top: 100px;
-    font-family: Arial;
+    margin-top: 50px;
     font-weight: bold;
-    font-size: 15px;
-    padding: 16px 30px;
     text-decoration: none;
-    background: linear-gradient(#f2f2f2, #d8d8d8);
-    border-left: 1px solid #f6f6f6;
-    border-right: 1px solid #e4e4e4;
-    text-align: center;
+    background: linear-gradient(#aef393, #b5e9af);
+    border-style: none;
     position: relative;
     z-index: 1;
     overflow: hidden;
@@ -1462,16 +1308,12 @@ footer {
     height: 50px;
     width: 300px;
     margin: 0 auto;
-    margin-top: 30px;
-    font-family: Arial;
+    margin-top: 10px;
     font-weight: bold;
-    font-size: 15px;
     padding: 16px 30px;
     text-decoration: none;
-    background: linear-gradient(#f2f2f2, #d8d8d8);
-    border-left: 1px solid #f6f6f6;
-    border-right: 1px solid #e4e4e4;
-    text-align: center;
+    background: linear-gradient(#aef393, #b5e9af);
+    border-style: none;
     position: relative;
     z-index: 1;
     overflow: hidden;
@@ -1503,16 +1345,15 @@ footer {
     height: 50px;
     width: 300px;
     margin-left: 110px;
-    margin-top: 20px;
     font-family: Arial;
     font-weight: bold;
     font-size: 15px;
-    padding: 18px 0px 18px 30px;
+    padding: 18px 0px 18px 80px;
     text-decoration: none;
     border-style: none;
     background-color: transparent;
     background-image: url("./Imagenes/logoGoogle.png");
-    background-position: 20px center;
+    background-position: 50px center;
     background-size: 40px 40px;
     background-repeat: no-repeat;
   }
@@ -1521,11 +1362,11 @@ footer {
   
   .inicioSesionDiv {
     position: relative;
-    background-image: url(Imagenes/fondoVerde.jpg);
+    /*background-image: url(Imagenes/fondoVerde.jpg);
     background-repeat: no-repeat;
     background-size: 85% 100%;
-    background-position: center center;
-    background-color: #6e9978;
+    background-position: center center;*/
+    background-color: #41b1117c;
     height: calc(100vh - 2rem);
     width: 100%;
     display: grid;
@@ -1586,6 +1427,7 @@ footer {
   }
   
   .inicioSesionDiv .inputCorreo {
+    grid-area: inputCorreo;
     padding: 15px;
     border: 1px solid #ccc;
     border-radius: 3px;
@@ -1598,6 +1440,7 @@ footer {
   }
   
   .inicioSesionDiv .inputPassword {
+    grid-area: inputPassword;
     padding: 15px;
     border: 1px solid #ccc;
     border-radius: 3px;
@@ -1610,29 +1453,53 @@ footer {
   }
   
   .inicioSesionDiv .botonIngresar {
-    width: 100px;
-    background: #27ae60;
+    grid-area: botonIngresar;
+    width: 300px;
+    height: 50px;
+    margin: 0 auto;
+    background: linear-gradient(#aef393, #b5e9af);
     font-weight: bold;
-    color: white;
+    color: rgb(0, 0, 0);
     border: 0 none;
     border-radius: 1px;
     cursor: pointer;
-    padding: 10px;
-    margin: 10px 5px;
     text-decoration: none;
     font-size: 14px;
-    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+  }
+
+  .botonIngresar:hover {
+    color: #fff;
+  }
+  .botonIngresar::after {
+    content: "";
+    background: #1d4261; 
+    position: absolute;
+    z-index: -1;
+    display: block;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    transform: scale(0, 0);
+    transition: all 0.3s ease;
+  }
+  .botonIngresar:hover::after {
+    transition: all 0.3s ease-out;
+    transform: scale(1, 1);
   }
   
   /*--------------------------------------------------- SECCIÓN REGISTRAR CORREO ---------------------------------------------------*/
   
   .registroCorreoDiv {
     position: relative;
-    background-image: url(Imagenes/fondoVerde.jpg);
+    /*background-image: url(Imagenes/fondoVerde.jpg);
     background-repeat: no-repeat;
     background-size: 85% 100%;
-    background-position: center center;
-    background-color: #6e9978;
+    background-position: center center;*/
+    background-color: #41b1117c;
     height: calc(100vh - 2rem);
     width: 100%;
     display: grid;
@@ -1655,7 +1522,7 @@ footer {
   .logoRegistro2 {
     display: flex;
     margin-top: 20px;
-    margin-left: 650px;
+    margin-left: 700px;
     width: 200px;
     height: 80px;
   }
@@ -1667,12 +1534,13 @@ footer {
     box-shadow: 0 0 15px 1px rgba(0, 0, 0, 0.4);
     padding: 10px 30px;
     position: relative;
-    margin-left: 430px;
+    margin-left: 480px;
+    margin-top: 10px;
     width: 40%;
     height:fit-content;
     display: grid;
     grid-gap: 5px;
-    grid-template-rows: 80px 60px 50px 50px 50px 50px 50px 50px;
+    grid-template-rows: 50px 40px 60px 60px 60px 60px 60px 50px;
     grid-template-areas:
       "bienvenido"
       "textoRegistro"
@@ -1685,7 +1553,7 @@ footer {
   }
   
   .registroCorreoDiv .bienvenido {
-    padding-top: 20px;
+    padding-top: 10px;
     grid-area: bienvenido;
     font-weight: bold;
     text-align: center;
@@ -1713,7 +1581,9 @@ footer {
     border: 1px solid #ccc;
     border-radius: 3px;
     margin-bottom: 2px;
-    width: 100%;
+    margin: 0 auto;
+    width: 90%;
+    height: 50px;
     box-sizing: border-box;
     font-family: montserrat;
     color: #13191f;
@@ -1727,7 +1597,9 @@ footer {
     border: 1px solid #ccc;
     border-radius: 3px;
     margin-bottom: 2px;
-    width: 100%;
+    margin: 0 auto;
+    width: 90%;
+    height: 50px;
     box-sizing: border-box;
     font-family: montserrat;
     color: #13191f;
@@ -1741,7 +1613,9 @@ footer {
     border: 1px solid #ccc;
     border-radius: 3px;
     margin-bottom: 2px;
-    width: 100%;
+    margin: 0 auto;
+    width: 90%;
+    height: 50px;
     box-sizing: border-box;
     font-family: montserrat;
     color: #13191f;
@@ -1755,26 +1629,13 @@ footer {
     border: 1px solid #ccc;
     border-radius: 3px;
     margin-bottom: 2px;
-    width: 100%;
+    margin: 0 auto;
+    width: 90%;
+    height: 50px;
     box-sizing: border-box;
     font-family: montserrat;
     color: #13191f;
     font-size: 13px;
-  }
-  
-  .registroCorreoDiv .botonRegistrate {
-    grid-area: botonRegistrate;
-    width: 80%;
-    background: #27ae60;
-    font-weight: bold;
-    color: white;
-    border: 0 none;
-    border-radius: 1px;
-    cursor: pointer;
-    margin: 10px 10px;
-    text-decoration: none;
-    font-size: 14px;
-    margin: 0 auto;
   }
   
   .registroCorreoDiv .textoPrivacidad {
@@ -1784,16 +1645,57 @@ footer {
     text-align: center;
     color: rgb(0, 0, 0);
   }
+
+  .registroCorreoDiv .botonRegistrate {
+    grid-area: botonRegistrate;
+    width: 80%;
+    height: 50px;
+    background: linear-gradient(#aef393, #b5e9af);
+    font-weight: bold;
+    color: rgb(0, 0, 0);
+    border: 0 none;
+    border-radius: 1px;
+    cursor: pointer;
+    margin: 10px 10px;
+    text-decoration: none;
+    font-size: 14px;
+    margin: 0 auto;
+    margin-top: 10px;
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+  }
+  
+  .botonRegistrate:hover {
+    color: #fff;
+  }
+  .botonRegistrate::after {
+    content: "";
+    background: #1d4261; 
+    position: absolute;
+    z-index: -1;
+    display: block;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    transform: scale(0, 0);
+    transition: all 0.3s ease;
+  }
+  .botonRegistrate:hover::after {
+    transition: all 0.3s ease-out;
+    transform: scale(1, 1);
+  }
   
   /*--------------------------------------------------- SECCIÓN FOTO PERFIL ---------------------------------------------------*/
   
   .contenedorDiv {
     position: relative;
-    background-image: url(Imagenes/fondoVerde.jpg);
+    /*background-image: url(Imagenes/fondoVerde.jpg);
     background-repeat: no-repeat;
     background-size: 85% 100%;
-    background-position: center center;
-    background-color: #6e9978;
+    background-position: center center;*/
+    background-color: #41b1117c;
     height: calc(100vh - 2rem);
     top: 0px;
     width: 100%;
@@ -1826,14 +1728,12 @@ footer {
     grid-area: formulario3;
     background: white;
     box-shadow: 0 0 15px 1px rgba(0, 0, 0, 0.4);
-    padding: 20px 30px;
     position: relative;
     justify-content: center;
-    margin-left: 500px;
+    margin-left: 510px;
     width: 30%;
     top: -20px;
     display: grid;
-    grid-gap: 20px;
     grid-template-areas:
       "mensajeRegistro"
       "mensajeFotoPerfil"
@@ -1848,25 +1748,25 @@ footer {
     text-align: center;
     font-size: 25px;
     color: #2c3e50;
-    margin-top: 10px;
-    margin-bottom: 10px;
+    margin-top: 20px;
     font-weight: bold;
   }
   
   .contenedorDiv .mensajeFotoPerfil {
     grid-area: mensajeFotoPerfil;
     font-size: large;
-    margin-bottom: 10px;
+    margin-top: 20px;
     text-align: center;
     color: rgb(0, 0, 0);
   }
   
   .contenedorDiv .divFotoPerfil {
     grid-area: divFotoPerfil;
-    width: 300px;
-    height: 200px;
-    margin-left: 10px;
-    border-radius: 50px;
+    width: 200px;
+    height: 180px;
+    margin: 0 auto;
+    margin-top: 10px;
+    border-radius: 50%;
   }
   
   .contenedorDiv .botonExaminar {
@@ -1877,64 +1777,84 @@ footer {
     padding: 16px 30px;
     background: linear-gradient(#f2f2f2, #d8d8d8);
     text-decoration: none;
-    border-right: 1px solid #e4e4e4;
-    border-left: 1px solid #f6f6f6;
+    border-style: none;
     text-align: center;
-    width: 80%;
+    width: 100%;
+    height: 50px;
     margin: 0 auto;
   }
   
   .contenedorDiv .botonFinalizar {
     grid-area: botonFinalizar;
-    width: 80%;
-    background: #27ae60;
+    width: 100%;
+    height: 50px;
+    background: linear-gradient(#aef393, #b5e9af);
     font-weight: bold;
-    color: white;
+    color: rgb(0, 0, 0);
     border: 0 none;
     border-radius: 1px;
     cursor: pointer;
-    padding: 16px 30px;
-    margin: 10px 5px;
+    margin: 10px 10px;
     text-decoration: none;
     font-size: 14px;
     margin: 0 auto;
+    margin-top: 10px;
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
   }
   
-  
+  .botonFinalizar:hover {
+    color: #fff;
+  }
+
+  .botonFinalizar::after {
+    content: "";
+    background: #1d4261; 
+    position: absolute;
+    z-index: -1;
+    display: block;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    transform: scale(0, 0);
+    transition: all 0.3s ease;
+  }
+
+  .botonFinalizar:hover::after {
+    transition: all 0.3s ease-out;
+    transform: scale(1, 1);
+  }
   
   
   /*------------------------------------------------------------ PERFIL USUARIO ----------------------------------------------------*/
   .perfilDiv {
-      background-image: url(Imagenes/Fondo2.jpg);
-      background-repeat: no-repeat;
-      background-size: contain;
-      background-position: bottom center;
-      background-color: #E6F2F4;
+      background-color: #41b1117c;
       padding: 20px 30px;
       width: 100%;
       min-height: calc(100vh - 2rem);
       display: grid;
       grid-gap: 10px;
-      grid-template-columns: 1fr;
+      grid-template-columns: 400px auto;
       grid-template-rows: 100px auto;
       grid-template-areas:
-        "header"
-        "containerPerfil";
-      z-index: 1;
+      "header  header"
+      "menu1   containerPerfil";
   }
   
   .containerPerfil{
+    grid-area: containerPerfil;
     background-image: url(./Imagenes/FondoPerfil.png);
     background-repeat: no-repeat;
     background-size: contain;
     background-position: center center;
-    background-color: #e6f2f4;
+    background-color: #ffffff;
     box-shadow: 0 0 15px 1px rgba(0, 0, 0, 0.4);
     padding: 20px 30px;
     position: relative;
     margin: 0 auto;
-    width: 80%;
-    top: -20px;
+    width: 90%;
     display: grid;
     grid-gap: 20px;
     grid-template-columns: 1fr 1fr;
@@ -1958,9 +1878,9 @@ footer {
   .containerPerfil .fotoPerfil{
     display: grid;
     grid-area: fotoPerfil;
-    background-color: #ffffff;
-    border-radius: 10px;
-    border: 1px solid #0a0a09;
+    background-color: transparent;
+    border-radius: 50%;
+    border: 2px solid #000000;
     width: 70%;
     height: 90%;
     margin-left: 70px;
@@ -1970,9 +1890,9 @@ footer {
   .containerPerfil .paisUsuario{
     display: grid;
     grid-area: paisUsuario;
-    background-color:white;
+    background-color: transparent;
     height: 60px;
-    border: 1px solid #0a0a09;
+    border: 2px solid #000000;
     width: 80%;
     text-align: center;
     padding-top: 20px;
@@ -1982,9 +1902,9 @@ footer {
   .containerPerfil .nivelTrackUsuario{
     display: grid;
     grid-area: nivelTrackUsuario;
-    background-color:white;
+    background-color: transparent;
     height: 60px;
-    border: 1px solid #0a0a09;
+    border: 2px solid #000000;
     width: 80%;
     text-align: center;
     padding-top: 20px;
@@ -1994,9 +1914,9 @@ footer {
   .containerPerfil .infoTrackUsuario{
     display: grid;
     grid-area: infoTrackUsuario;
-    background-color:white;
+    background-color:transparent;
     height: 60px;
-    border: 1px solid #0a0a09;
+    border: 2px solid #000000;
     width: 80%;
     text-align: center;
     padding-top: 20px;
@@ -2008,106 +1928,130 @@ footer {
   .header2 {
     grid-area: header;
     position: relative;
-    height: 5rem;
-    display: flex;
-    align-items: center;
-    flex-direction: row-reverse;
-    align-content: space-evenly;
-    top: -10px;
+    height: 100%;
+    display: grid;
     z-index: 3;
   }
-  
-  .despliegueMenu {
-    background-color: transparent;
-    z-index: 1;
-    width: 80px;
-    height: 70px;
-    border-style: none;
-  }
-  
-  .tresLineas {
-    margin-top: 10px;
-    width: 60px;
-    height: 50px;
-  }
-  
-  .menuHome {
-    position: relative;
-    display: flex;
-    align-content: space-between;
-    width: 150px;
-    height: 150px;
-    top: 0px;
-    background-color: rgba(9, 31, 71, 0.932);
-    clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
-    transition: clip-path 0.3s ease-out;
-    z-index: 2;
-    border-style: none;
-    border-radius: 20px;
-    margin-left: 5px;
-  }
-  
-  .menuHome.active {
-    /*esta hace que salga abajo el input de la publicación*/
-    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
-    z-index: 2;
-  }
-  
-  .opcionSection {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    gap: 25px;
-    margin-top: 15px;
-    color: white;
-    font-size: 18px;
-    font-weight: bold;
-    text-align: center;
-  }
-  
+
   .logo2 {
     position: relative;
-    margin-left: 80%;
-    margin-right: 2%;
-    width: 120px;
-    height: 50px;
+    width: 220px;
+    height: 100px;
+    margin-top: -10px;
+    margin-left: 60px;
+  }
+  
+  .despliegueMenu, .tresLineas, .menuHome{
+    display: none;
   }
   
   /*-------------------------------------------------------------- SECCIÓN HOME  ------------------------------------------------*/
   .homeDiv {
-    /*background-image: url(Imagenes/Fondo2.jpg);
-    background-repeat: no-repeat;
-    background-size: contain;
-    background-position: bottom center;*/
-    background-color: #7b9c6d7c;
+    background-color: #41b1117c;
     padding: 20px 30px;
     width: 100%;
-    min-height: calc(100vh - 2rem);
+    min-height: 100%;
     display: grid;
     grid-gap: 10px;
     grid-template-columns: 350px auto 350px;
-    grid-template-rows: 100px 60px 200px;
+    grid-template-rows: 100px 200px 10px auto;
     grid-template-areas:
-      "header  header         header"
-      "menu    buscadorHome   eventos"
-      "menu    publicacionDiv eventos"
-      "menu    divPost        eventos";
+      "header   buscadorHome    nada"
+      "menu1    publicacionDiv   eventos"
+      "menu1    publicacionDiv eventos"
+      "menu1    divPost        eventos";
     z-index: 1;
   }
   
+  .menuGrande {
+    display: grid;
+    width: 100%;
+    height: 99.8%;
+    grid-area: menu1;
+    background-color: #41b11144;
+  }
+
+  .iconosDiv {
+    position: fixed;
+  }
+
+  .imagenHome {
+    display: flex;
+    width: 50px;
+    height: 50px;
+    margin-left: 80px;
+    margin-top: 100px;
+  }
+
+  .imagenPerfil {
+    display: flex;
+    grid-area: imagenPerfil;
+    width: 50px;
+    height: 50px;
+    margin-left: 80px;
+    margin-top: 50px;
+  }
+
+  .imagenSalir {
+    display: flex;
+    grid-area: imagenSalir;
+    width: 50px;
+    height: 50px;
+    margin-left: 85px;
+    margin-top: 70px;
+  }
+
+  .selectDiv {
+    grid-area: opciones;
+    position: fixed;
+  }
+
+  .opcionSection2 {
+    position: relative;
+    display: grid;
+    list-style-type: none;
+    color: #000000;
+    gap: 75px;
+    padding-top: 30px;
+    font-size: 30px;
+    margin-top: 85px;
+    left: 160px;
+    font-family: 'Josefin Sans', sans-serif;
+    cursor: pointer;
+  }
+
+  .navHome2:hover {
+    color: #fff;
+  }
+  
+  .navPerfil2:hover {
+    color: #fff;
+  }
+
+  .navSalir2:hover {
+    color: #fff;
+  }
+
+
+ 
   .buscadorDiv {
+    display: flex;
+    align-items: center;
     grid-area: buscadorHome;
     position: relative;
-    width: 90%;
-    z-index: 1;
-    margin: 0 auto;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 85% 15%;
+    grid-template-areas:
+      "buscador boton";
   }
   
   .buscadorHome {
+    grid-area: buscador;
     display: flex;
     position: relative;
-    margin: 0 auto;
-    width: 100%;
+    width: 95%;
+    margin-left: 6%;
     height: 50px;
     padding: 18px 15px;
     font-size: 10pt;
@@ -2121,10 +2065,8 @@ footer {
   }
   
   .botonBuscarHome {
-    position: absolute;
-    top: 0;
-    right: 0;
-    width: 50px;
+    grid-area: boton;
+    width: 65%;
     height: 50px;
     background-color: rgb(255, 255, 255);
     border: solid;
@@ -2132,12 +2074,14 @@ footer {
     border-width: 1px;
     border-radius: 5px;
     z-index: 2;
-    margin-right: 0px;
+
   }
   
   .imagenLupa {
-    width: 30px;
-    height: 30px;
+    padding-top: 5px;
+    padding-left: 5px;
+    width: 40px;
+    height: 40px;
   }
   
   .publicacionDiv {
@@ -2181,6 +2125,7 @@ footer {
   .placeholder {
     color: gray;
   }
+  
   
   /*------------------------------------------------------------ POP UP PUBLICAR ------------------------------------------------*/
   .modalDiv {
@@ -2313,7 +2258,7 @@ footer {
     margin: 30px 0px;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: 400px 80px 30px 30px 30px 30px 30px 30px;
+    grid-template-rows: 400px 80px 30px 30px 30px 30px 50px;
     grid-template-areas: 
     "imagenPost imagenPost imagenPost"
     "botonLike contadorLikes contadorLikes"
@@ -2328,9 +2273,9 @@ footer {
   .imagenPost {
     grid-area: imagenPost;
     position: relative;
-    width: 98%;
-    height: 98%;
-    margin: 5px 5px 5px 5px;
+    width: 95%;
+    height: 95%;
+    margin: 15px 5px 5px 15px;
   }
 
 
@@ -2338,7 +2283,7 @@ footer {
     grid-area: usuario;
     width: 100%;
     height: 30px;
-    margin: 5px 10px;
+    margin: 5px 15px;
     font-family: 'Josefin Sans', sans-serif;
     font-size: 20px;
   }
@@ -2357,7 +2302,7 @@ footer {
     grid-area: ubicacion2;
     width: 100%;
     height: 30px;
-    margin: 10px 10px;
+    margin: 10px 15px;
     font-family: 'Josefin Sans', sans-serif;
     font-size: 15px;
   }
@@ -2366,7 +2311,7 @@ footer {
     grid-area: dificultad2;
     width: 100%;
     height: 30px;
-    margin: 10px 10px;
+    margin: 10px 15px;
     font-family: 'Josefin Sans', sans-serif;
     font-size: 15px;
   }
@@ -2375,7 +2320,7 @@ footer {
     grid-area: equipo2;
     width: 100%;
     height: 30px;
-    margin: 10px 10px;
+    margin: 10px 15px;
     font-family: 'Josefin Sans', sans-serif;
     font-size: 15px;
   }
@@ -2384,31 +2329,37 @@ footer {
 
   .likePublicacion{
     grid-area: botonLike;
-    width: 80%;
-    height: 70%;
+    width: 100%;
+    height: 100%;
   }
 
 
   .like {
-    background-color: #2f6e05;
-    color: white;
     border: none; 
-    padding: 0 20px;
     cursor: pointer;
     width: 100%;
     height: 100%;
-    border-radius: 5px;
-    margin: 5PX;
+    background-color: transparent;
    }
+  
+  
+  .montana {
+    position: relative;
+    height: 50px;
+    width: 50px;
+    right: 30%;
+  }
 
 
    .contadorLikes {
+    position: relative;
     grid-area: contadorLikes;
     width: 100%;
     height: 30px;
-    margin: 15px 10px;
     font-family: 'Josefin Sans', sans-serif;
     font-size: 25px;
+    right: 32%;
+    top: 35%;
    }
 
 
@@ -2456,13 +2407,12 @@ footer {
   
   footer {
     height: 2rem;
-    background-color: rgba(0, 0, 0, 0.678);
-    color: white;
+    background-color: rgba(0, 0, 0, 0.411);
+    color: rgb(0, 0, 0);
     font-size: 10px;
     text-align: center;
     padding: 10px;
-    position: fixed;
-    left: 0;
+    position: relative;
     bottom: 0px;
     width: 100%;
     z-index: 0;

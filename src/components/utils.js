@@ -110,7 +110,6 @@ export const crearPost = () => {
   const ubicacion = document.getElementById("ubicacion").value;
   const dificultad = document.getElementById("dificultad").value;
   const equipo = document.getElementById("equipo").value;
-
   const fecha = serverTimestamp();
 
   console.log(usuarioActual);

@@ -1,9 +1,12 @@
 import { db } from "../app/firebase";
 import { getAuth } from "firebase/auth";
-import logoMountainMe from '../Imagenes/Logo MountainMe.png';
-import menu from '../Imagenes/menu.png';
-import lupa from '../Imagenes/lupa.png';
-import montanaLike from '../Imagenes/montaña.png';
+import logoMountainMe from "../Imagenes/Logo MountainMe.png";
+import menu from "../Imagenes/menu.png";
+import lupa from "../Imagenes/lupa.png";
+import montanaLike from "../Imagenes/montaña.png";
+import iconoHome from "../Imagenes/iconoHome.png";
+import iconoPerfil from "../Imagenes/iconoPerfil.png";
+import iconoSalir from "../Imagenes/iconoSalir.png";
 import {
   logout,
   crearPost,
@@ -16,7 +19,6 @@ import {
   eliminarPost,
   updateLike,
   disLike,
- 
 } from "./utils.js";
 import {
   onSnapshot,
@@ -38,14 +40,41 @@ export const Home = (onNavigate) => {
   const navHome = document.createElement("li");
   const navPerfil = document.createElement("li");
   const navCerrarSesion = document.createElement("li");
-  logoChico.src = logoMountainMe
-  imagenMenu.src = menu
+  logoChico.src = logoMountainMe;
+  imagenMenu.src = menu;
   header2.classList.add("header2");
   logoChico.classList.add("logo2");
   imagenMenu.classList.add("tresLineas");
   menuHome.classList.add("menuHome");
   despliegueMenu.classList.add("despliegueMenu");
   opcionSection.classList.add("opcionSection");
+
+  const menuGrande = document.createElement("div");
+  menuGrande.classList.add("menuGrande");
+  const iconosDiv = document.createElement("div");
+  iconosDiv.classList.add("iconosDiv");
+  const selectDiv = document.createElement("div");
+  selectDiv.classList.add("selectDiv");
+  const imagenHome = document.createElement("img");
+  const imagenPerfil = document.createElement("img");
+  const imagenSalir = document.createElement("img");
+  imagenHome.classList.add("imagenHome");
+  imagenPerfil.classList.add("imagenPerfil");
+  imagenSalir.classList.add("imagenSalir");
+  imagenHome.src = iconoHome;
+  imagenPerfil.src = iconoPerfil;
+  imagenSalir.src = iconoSalir;
+  const opcionSection2 = document.createElement("ul");
+  const navHome2 = document.createElement("li");
+  const navPerfil2 = document.createElement("li");
+  const navCerrarSesion2 = document.createElement("li");
+  opcionSection2.classList.add("opcionSection2");
+  navHome2.classList.add("navHome2");
+  navPerfil2.classList.add("navPerfil2");
+  navCerrarSesion2.classList.add("navSalir2");
+  navHome2.textContent = "HOME";
+  navPerfil2.textContent = "PERFIL";
+  navCerrarSesion2.textContent = "SALIR";
 
   const HomeDiv = document.createElement("div");
   const buscadorDiv = document.createElement("div");
@@ -71,8 +100,6 @@ export const Home = (onNavigate) => {
   const fotoPublicacion = document.createElement("input");
   const botonPublicar = document.createElement("button");
   const divPosts = document.createElement("div");
-  //const botonicon = document.createElement("button");//
-  //const icon = document.createElement("i");//
 
   HomeDiv.classList.add("homeDiv");
   buscadorDiv.classList.add("buscadorDiv");
@@ -95,12 +122,10 @@ export const Home = (onNavigate) => {
   dificultad.classList.add("dificultad");
   equipo.classList.add("equipo");
   divPosts.classList.add("divPosts");
-  //botonicon.classList.add("botonicon");
-  //icon.classList.add("fa-solid fa-trash-can");
 
   buscadorHome.setAttribute("type", "text");
   buscadorHome.setAttribute("placeholder", "Busca por pais");
-  imagenLupa.src = lupa
+  imagenLupa.src = lupa;
   textoPublicacion.setAttribute(
     "placeholder",
     "Cuentanos tu nueva aventura..."
@@ -127,8 +152,6 @@ export const Home = (onNavigate) => {
   equipo.setAttribute.required;
   ubicacion.setAttribute.required;
   dificultad.setAttribute.required;
-  //icon.setAttribute('aria-hidden', 'true');
-  
 
   navHome.textContent = "HOME";
   navPerfil.textContent = "PERFIL";
@@ -150,6 +173,18 @@ export const Home = (onNavigate) => {
   opcionSection.appendChild(navHome);
   opcionSection.appendChild(navPerfil);
   opcionSection.appendChild(navCerrarSesion);
+
+  HomeDiv.appendChild(menuGrande);
+  menuGrande.appendChild(iconosDiv);
+  iconosDiv.appendChild(imagenHome);
+  iconosDiv.appendChild(imagenPerfil);
+  iconosDiv.appendChild(imagenSalir);
+  menuGrande.appendChild(selectDiv);
+  selectDiv.appendChild(opcionSection2);
+  opcionSection2.appendChild(navHome2);
+  opcionSection2.appendChild(navPerfil2);
+  opcionSection2.appendChild(navCerrarSesion2);
+
   HomeDiv.appendChild(buscadorDiv);
   buscadorDiv.appendChild(buscadorHome);
   buscadorDiv.appendChild(botonBuscador);
@@ -172,8 +207,6 @@ export const Home = (onNavigate) => {
   publicacionPopUp.appendChild(fotoPublicacion);
   publicacionPopUp.appendChild(botonPublicar);
   HomeDiv.appendChild(divPosts);
-  //divPosts.appendChild(botonicon);
-  //botonicon.appendChild(icon);
 
   despliegueMenu.addEventListener("click", () => {
     menuHome.classList.toggle("active");
@@ -194,6 +227,10 @@ export const Home = (onNavigate) => {
     }
   });
 
+  navHome.addEventListener("click", () => {
+    onNavigate("/Home");
+  });
+
   navPerfil.addEventListener("click", () => {
     onNavigate("/PerfilUsuario");
   });
@@ -203,11 +240,20 @@ export const Home = (onNavigate) => {
     onNavigate("/");
   });
 
-  navHome.addEventListener("click", () => {
+  navHome2.addEventListener("click", () => {
     onNavigate("/Home");
   });
 
+  navPerfil2.addEventListener("click", () => {
+    onNavigate("/PerfilUsuario");
+  });
 
+  navCerrarSesion2.addEventListener("click", () => {
+    logout();
+    onNavigate("/");
+  });
+
+  /*--------------------------------------------------------SE EMPIEZAN A MOSTRAR LOS POSTS ----------------------------------------*/
 
   const q = query(collection(db, "posts"), orderBy("fecha", "desc"));
   let postEditado = false;
@@ -222,7 +268,6 @@ export const Home = (onNavigate) => {
       const usernametoshow =
         username === "google" ? doc.data().nombre : username;
 
-        /*<p class="descripcionPost">${doc.data().textoPublicacion}</p> ESTABA EN LA 221*/
       let divPost = `
     <div class="publicacionPost">
     <p class="usuario">${usernametoshow} : ${doc.data().textoPublicacion}</p>
@@ -230,30 +275,30 @@ export const Home = (onNavigate) => {
     <p class="dificultad2">DIFICULTAD: ${doc.data().dificultad}</p>
     <p class="equipo2">EQUIPO: ${doc.data().equipo}</p>
     <p class="contadorLikes">${doc.data().likes.length} me gusta</p>
-    <img class="imagenPost" src="${doc.data().fotoPublicacion}"></img>`
+    <img class="imagenPost" src="${doc.data().fotoPublicacion}"></img>`;
 
-    if(doc.data().likes.includes(usuarioActual.uid)){
-      divPost += `<div class="likePublicacion">
-      <button class="like" data-id="${doc.id}"><img class="montana" id="montana" src=${montanaLike}></img>DISLIKE</button>
-    </div>`
-    }else{
-      divPost += `<div class="likePublicacion">
-      <button class="like" data-id="${doc.id}"><img class="montana" id="montana" src=${montanaLike}></img>ME GUSTA</button>
-    </div>`
-    }
+      if (doc.data().likes.includes(usuarioActual.uid)) {
+        divPost += `<div class="likePublicacion">
+      <button class="like" data-id="${doc.id}"><img class="montana" id="montana" src=${montanaLike}></img></button>
+    </div>`;
+      } else {
+        divPost += `<div class="likePublicacion">
+      <button class="like" data-id="${doc.id}"><img class="montana" id="montana" src=${montanaLike}></img></button>
+    </div>`;
+      }
 
-    if(usuarioActual.email === doc.data().email_user){
-      divPost += `<div class="editarPublicacion">
+      if (usuarioActual.email === doc.data().email_user) {
+        divPost += `<div class="editarPublicacion">
           <button class="editar" data-id="${doc.id}">Editar</button>
       </div>
       <div class="eliminarPublicacion">
           <button class="eliminar" data-id="${doc.id}">Eliminar</button>
-      </div>`
-    }
-    divPost += `</div>
+      </div>`;
+      }
+      divPost += `</div>
     </div>`;
 
-    divPosts.innerHTML += divPost;
+      divPosts.innerHTML += divPost;
 
       const btnsEditar = divPosts.querySelectorAll(".editar");
       btnsEditar.forEach((btn) => {
@@ -276,12 +321,11 @@ export const Home = (onNavigate) => {
 
         const btnsEliminar = divPosts.querySelectorAll(".eliminar");
         btnsEliminar.forEach((btn) => {
-          btn.addEventListener('click', ({target: {dataset}}) => {
-            console.log("borrar")
-            eliminarPost(dataset.id)
-          })
-        })
-
+          btn.addEventListener("click", ({ target: { dataset } }) => {
+            console.log("borrar");
+            eliminarPost(dataset.id);
+          });
+        });
       });
 
       const botonLike = divPosts.querySelectorAll(".like");
@@ -290,7 +334,7 @@ export const Home = (onNavigate) => {
           e.preventDefault();
           const doc = await traerPost(e.target.dataset.id);
           const usuarioActual = getAuth().currentUser;
-         
+
           if (doc.data().likes.includes(usuarioActual.uid)) {
             disLike(doc.id, usuarioActual.uid);
           } else {
@@ -298,9 +342,7 @@ export const Home = (onNavigate) => {
           }
         });
       });
- 
     });
-
   });
 
   botonPublicar.addEventListener("click", () => {
@@ -328,15 +370,5 @@ export const Home = (onNavigate) => {
     document.getElementById("fotoPublicacion").value = "";
   });
 
-
-  
   return HomeDiv;
 };
-
-
-
-
-  
-   
-
-
